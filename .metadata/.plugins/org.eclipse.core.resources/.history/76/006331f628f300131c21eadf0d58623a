@@ -63,7 +63,7 @@ public class NeoGraphRest implements Graph{
 
 		long id = neoGraph.createNode(node1);
 		Node newNode = neoGraph.getNode(id);
-		System.out.println("NeoGraphRest newNode " + newNode);
+		System.out.println("NeoGraph newNode " + newNode);
 
 	}
 
@@ -74,7 +74,7 @@ public class NeoGraphRest implements Graph{
 			node = graphDb.getNodeById(id);
 			tx.success();
 		} catch (Exception e) {
-			System.out.println("Exception in NeoGraphRest createNode " + e);
+			System.out.println("Exception in NeoGraph createNode " + e);
 		}
 		return node;
 
@@ -104,7 +104,7 @@ public class NeoGraphRest implements Graph{
 			try{
 				fromId = Long.parseLong(NeoGraphRest.nodeIAndNeoId.get(node.id));
 			}catch(Exception ex){
-				System.out.println("Exception in NeoGraphRest createEdges. From node does not exist" );
+				System.out.println("Exception in NeoGraph createEdges. From node does not exist" );
 				return 0;
 			}
 		Node fromNode = graphDb.getNodeById(fromId);			
@@ -113,9 +113,9 @@ public class NeoGraphRest implements Graph{
 			Entry<String, String> entry = it.next();
 				long toId = 0 ;
 				try{
-					toId = Long.parseLong(NeoGraphRest.nodeIAndNeoId.get(entry.getKey()));
+					toId = Long.parseLong(NeoGraph.nodeIAndNeoId.get(entry.getKey()));
 				}catch(Exception ex){
-					System.out.println("Exception in NeoGraphRest createEdges. To node does not exist" );
+					System.out.println("Exception in NeoGraph createEdges. To node does not exist" );
 					return 0;
 				}
 			Node toNode = graphDb.getNodeById(toId);
@@ -143,23 +143,15 @@ public class NeoGraphRest implements Graph{
 	public double getShortestPathWeight(String from, String to) {
 
 		double minWeight = 0.0 ;
-		
-		if(from == null || from.length() == 0 || to == null || to.length() == 0){
-			System.out.println("Exception in getShortestPathWeight. Either from or to is not specified  " );
-			return 0.0;			
-		}
+
+
 		long fromId = Long.parseLong(NeoGraphRest.nodeIAndNeoId.get(from));
 		long toId = Long.parseLong(NeoGraphRest.nodeIAndNeoId.get(to));
-			Node fromNode = null;
-			Node toNode = null ;
-			
-			try{
-				fromNode = graphDb.getNodeById(fromId);			
-				toNode = graphDb.getNodeById(toId);
-			}catch(Exception ex){
-				System.out.println("Exception in getShortestPathWeight. From or To node does not exist " + ex);
-				return 0.0;
-			}
+
+		Node fromNode = graphDb.getNodeById(fromId);			
+		Node toNode = graphDb.getNodeById(toId);			
+
+
 
 		PathFinder<WeightedPath> finder = GraphAlgoFactory.dijkstra(
 				PathExpanders.forTypeAndDirection( RelTypes.TravellingTo, Direction.OUTGOING ), "weight" );
@@ -203,23 +195,13 @@ public class NeoGraphRest implements Graph{
 	public List getShortestPathVetices(String from, String to) {
 		List<String> list = new ArrayList<String>();
 
-		if(from == null || from.length() == 0 || to == null || to.length() == 0){
-			System.out.println("Exception in getShortestPathVetices. Either from or to is not specified  " );
-			return list ;			
-		}
+
 		long fromId = Long.parseLong(NeoGraphRest.nodeIAndNeoId.get(from));
 		long toId = Long.parseLong(NeoGraphRest.nodeIAndNeoId.get(to));
 
-			Node fromNode = null;
-			Node toNode = null ;
-			
-			try{
-				fromNode = graphDb.getNodeById(fromId);			
-				toNode = graphDb.getNodeById(toId);
-			}catch(Exception ex){
-				System.out.println("Exception in getShortestPathVetices. From or To node does not exist " + ex);
-				return list;
-			}
+		Node fromNode = graphDb.getNodeById(fromId);			
+		Node toNode = graphDb.getNodeById(toId);			
+
 
 		PathFinder<WeightedPath> finder = GraphAlgoFactory.dijkstra(
 				PathExpanders.forTypeAndDirection( RelTypes.TravellingTo, Direction.OUTGOING ), "weight" );
@@ -254,10 +236,6 @@ public class NeoGraphRest implements Graph{
 
 	@Override
 	public void createNodes(List<src.graphs.node.Node> nodes) {
-		if(nodes == null || nodes.size() == 0){
-			System.out.println("NeoGraphRest createNodes passed empty list of nodes");
-			return;
-		}
 		for(src.graphs.node.Node node : nodes){
 			createNode(node);
 		}	
@@ -265,10 +243,6 @@ public class NeoGraphRest implements Graph{
 
 	@Override
 	public void createEdges(List<src.graphs.node.Node> nodes) {
-		if(nodes == null || nodes.size() == 0){
-			System.out.println("NeoGraphRest createEdges passed empty list of nodes");
-			return;
-		}
 		for(src.graphs.node.Node node : nodes){
 			createEdge(node);
 		}	
@@ -277,11 +251,6 @@ public class NeoGraphRest implements Graph{
 
 	@Override
 	public long deleteNode(String nodeId) {
-		if(nodeId == null || nodeId.length() == 0 ){
-			System.out.println("Error in NeoGraphRest deleteNode.Pass valid nodeId " );
-			return 0;
-		}
-
 		Node tempNode = graphDb.getNodeById(Long.parseLong(NeoGraphRest.nodeIAndNeoId.get(nodeId)));
 		tempNode.delete();
 		return 1;
@@ -289,10 +258,6 @@ public class NeoGraphRest implements Graph{
 
 	@Override
 	public void deleteNodes(List<src.graphs.node.Node> nodes) {
-		if(nodes == null || nodes.size() == 0){
-			System.out.println("NeoGraphRest deleteNodes passed empty list of nodes");
-			return;
-		}
 		for(src.graphs.node.Node node : nodes ){
 			deleteNode(node.id);
 		}		
@@ -320,16 +285,5 @@ public class NeoGraphRest implements Graph{
 			edge.delete();
 		}		
 		return 1;
-	}
-	boolean validateNode(src.graphs.node.Node node){
-		if(node == null){
-			System.out.println("NeoGraphRest createEdge : node is null ");
-			return false;
-		}
-		if(node.id == null || node.id.length() == 0){
-			System.out.println("NeoGraphRest createEdge : node id is null ");
-			return false;
-		}
-		return true;
 	}
 }

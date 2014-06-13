@@ -82,7 +82,8 @@ public class GraphTests {
 		for(Node node : newNodesList){
 			assertNotNull(node.id);
 			assertNotEquals(node.id.length(),0);
-		}	
+		}
+		
 	} 
 
 	@Test

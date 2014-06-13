@@ -38,8 +38,8 @@ public class GraphTests {
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		System.out.println("setUpBeforeClass for test");
-		//graph = new NeoGraph();
-		graph = new NeoGraphRest();
+		graph = new NeoGraph();
+		 //graph = new NeoGraphRest();
 		//graph = new Jgraph();
 		String flightSystemsHome  = System.getenv("FlightSystems_Home");
 		pathForInputFile = flightSystemsHome + "\\FlightSystem\\user-files\\test.json";
@@ -75,14 +75,6 @@ public class GraphTests {
 	@Test
 	 public void testNodesFromJson() {
 		assertEquals(newNodesList.size(),4);
-	} 
-	
-	@Test
-	 public void testEachNodesFromJson() {
-		for(Node node : newNodesList){
-			assertNotNull(node.id);
-			assertNotEquals(node.id.length(),0);
-		}	
 	} 
 
 	@Test
