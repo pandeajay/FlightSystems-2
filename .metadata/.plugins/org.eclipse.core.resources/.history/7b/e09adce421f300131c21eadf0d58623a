@@ -223,7 +223,7 @@ public class NeoGraph implements Graph{
 			}			
 			tx.success();
 		} catch (Exception e) {
-			System.out.println("Exception in NeoGraph getShortestPathVetices " + e);
+			System.out.println("Exceptio in NeoGraph getShortestPathVetices " + e);
 		}
 		return list;
 
@@ -264,7 +264,8 @@ public class NeoGraph implements Graph{
 			tx.success();
 			return 1;
 		} catch (Exception e) {
-			System.out.println("Exception in NeoGraph deleteNode " + e);
+			System.out.println("Exceptio in NeoGraph getShortestPathVetices "
+					+ e);
 		}
 		return 0;
 	}
@@ -277,7 +278,7 @@ public class NeoGraph implements Graph{
 			}
 			tx.success();
 		} catch (Exception e) {
-			System.out.println("Exception in NeoGraph getShortestPathVetices "
+			System.out.println("Exceptio in NeoGraph getShortestPathVetices "
 					+ e);
 		}
 	}
@@ -301,21 +302,22 @@ public class NeoGraph implements Graph{
 	
 	@Override
 	public int deleteAllNodes() {
-		try (Transaction tx = graphDb.beginTx()) {
+		//try (Transaction tx = graphDb.beginTx()) {
 			List<String> nodes = new ArrayList<String>();
 			Iterator<Entry<String, String>> it = NeoGraph.nodeIAndNeoId.entrySet().iterator();
 			while (it.hasNext()) {
 				nodes.add(it.next().getKey());
 			}	
 			for(String nodeId : nodes){
-				deleteNode(nodeId);				
+				deleteNode(nodeId);
+				
 			}
-			tx.close();
-			//tx.success();
-		} catch (Exception e) {
-			System.out.println("Exception in NeoGraph deleteAllNodes " 	+ e);
-			return 0;
-		}
+			
+	//		tx.success();
+	//	} catch (Exception e) {
+	//		System.out.println("Exception in NeoGraph deleteAllNodes " 	+ e);
+	//		return 0;
+//		}
 		return 1;
 	}
 	

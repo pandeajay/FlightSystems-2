@@ -310,8 +310,8 @@ public class NeoGraph implements Graph{
 			for(String nodeId : nodes){
 				deleteNode(nodeId);				
 			}
-			tx.close();
-			//tx.success();
+			
+			tx.success();
 		} catch (Exception e) {
 			System.out.println("Exception in NeoGraph deleteAllNodes " 	+ e);
 			return 0;

@@ -17,7 +17,6 @@ import org.junit.Test;
 import src.graphs.Graph;
 import src.graphs.Jgraph;
 import src.graphs.NeoGraph;
-import src.graphs.NeoGraphRest;
 import src.graphs.node.Node;
 import utilities.Utils;
 
@@ -38,8 +37,8 @@ public class GraphTests {
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		System.out.println("setUpBeforeClass for test");
-		//graph = new NeoGraph();
-		 graph = new NeoGraphRest();
+		graph = new NeoGraph();
+		// graph = new NeoGraphRest();
 		//graph = new Jgraph();
 		String flightSystemsHome  = System.getenv("FlightSystems_Home");
 		pathForInputFile = flightSystemsHome + "\\FlightSystem\\user-files\\test.json";

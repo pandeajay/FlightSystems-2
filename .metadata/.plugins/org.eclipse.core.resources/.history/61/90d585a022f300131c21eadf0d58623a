@@ -17,7 +17,6 @@ import org.junit.Test;
 import src.graphs.Graph;
 import src.graphs.Jgraph;
 import src.graphs.NeoGraph;
-import src.graphs.NeoGraphRest;
 import src.graphs.node.Node;
 import utilities.Utils;
 
