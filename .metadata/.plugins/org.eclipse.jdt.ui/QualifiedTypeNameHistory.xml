@@ -46,9 +46,9 @@
 <fullyQualifiedTypeName name="java.io.IOException"/>
 <fullyQualifiedTypeName name="src.graphs.MyGraph"/>
 <fullyQualifiedTypeName name="src.graphs.Graph"/>
-<fullyQualifiedTypeName name="src.graphs.NeoGraphRest"/>
 <fullyQualifiedTypeName name="java.util.Set"/>
 <fullyQualifiedTypeName name="org.jgraph.JGraph"/>
 <fullyQualifiedTypeName name="src.graphs.Jgraph"/>
 <fullyQualifiedTypeName name="src.graphs.NeoGraph"/>
+<fullyQualifiedTypeName name="src.graphs.NeoGraphRest"/>
 </qualifiedTypeNameHistroy>
