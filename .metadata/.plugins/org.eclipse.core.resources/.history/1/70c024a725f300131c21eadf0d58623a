@@ -89,7 +89,12 @@ public class NeoGraph implements Graph{
 
 	@Override
 	public long createNode(src.graphs.node.Node node) {
-		if(!validateNode(node)){
+		if(node == null){
+			System.out.println("NeoGraph createNode : node is null ");
+			return 0;
+		}
+		if(node.id == null || node.id.length() == 0){
+			System.out.println("NeoGraph createNode : node id is null ");
 			return 0;
 		}
 		
@@ -110,7 +115,12 @@ public class NeoGraph implements Graph{
 
 	@Override
 	public long createEdge(src.graphs.node.Node node) {
-		if(!validateNode(node)){
+		if(node == null){
+			System.out.println("NeoGraph createEdge : node is null ");
+			return 0;
+		}
+		if(node.id == null || node.id.length() == 0){
+			System.out.println("NeoGraph createEdge : node id is null ");
 			return 0;
 		}
 		try ( Transaction tx = graphDb.beginTx() ){
@@ -341,14 +351,14 @@ public class NeoGraph implements Graph{
 		}
 		return 1;
 	}
-	boolean validateNode(src.graphs.node.Node node){
+	validateNode(Node node){
 		if(node == null){
 			System.out.println("NeoGraph createEdge : node is null ");
-			return false;
+			return 0;
 		}
 		if(node.id == null || node.id.length() == 0){
 			System.out.println("NeoGraph createEdge : node id is null ");
-			return false;
+			return 0;
 		}
 		return true;
 	}
