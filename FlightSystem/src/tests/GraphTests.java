@@ -5,11 +5,8 @@ package tests;
 
 import static org.junit.Assert.*;
 
-import java.io.File;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -18,9 +15,6 @@ import org.junit.Test;
 
 import src.graphs.Graph;
 import src.graphs.Jgraph;
-import src.graphs.MyGraph;
-import src.graphs.NeoGraph;
-import src.graphs.NeoGraphRest;
 import src.graphs.node.Node;
 import utilities.Utils;
 

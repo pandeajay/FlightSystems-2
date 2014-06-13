@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry kind="lib" path="FlightSystems-Lib/FlightSystems/FlightSystem/lib/jgrapht-0.9.0/lib/jgraph-5.13.0.0.jar"/>
+	<classpathentry kind="lib" path="FlightSystems-Lib/FlightSystems/FlightSystem/lib/jgrapht-0.9.0/lib/jgrapht-core-0.9.0.jar"/>
+	<classpathentry kind="lib" path="FlightSystems-Lib/FlightSystems/FlightSystem/lib/jgrapht-0.9.0/lib/jgrapht-demo-0.9.0.jar"/>
+	<classpathentry kind="lib" path="FlightSystems-Lib/FlightSystems/FlightSystem/lib/jgrapht-0.9.0/lib/jgrapht-ext-0.9.0.jar"/>
+	<classpathentry kind="lib" path="FlightSystems-Lib/FlightSystems/FlightSystem/lib/jgrapht-0.9.0/lib/jgrapht-ext-0.9.0-uber.jar"/>
+	<classpathentry kind="lib" path="FlightSystems-Lib/FlightSystems/FlightSystem/lib/jgrapht-0.9.0/lib/jgraphx-2.0.0.1.jar"/>
+	<classpathentry kind="lib" path="FlightSystems-Lib/FlightSystems/FlightSystem/lib/json_simple-1.1-all/lib/json_simple-1.1.jar"/>
+	<classpathentry kind="lib" path="FlightSystems-Lib/FlightSystems/FlightSystem/lib/neo4j-desktop-2.1.1/neo4j-desktop-2.1.1.jar"/>
+	<classpathentry kind="lib" path="FlightSystems-Lib/FlightSystems/FlightSystem/lib/neo4j-desktop-2.1.1/neo4j-rest-graphdb-1.8.1.jar"/>
+	<classpathentry kind="lib" path="FlightSystems-Lib/FlightSystems/FlightSystem/lib/neo4j-desktop-2.1.1/neo4j-rest-graphdb-1.8.1-sources.jar"/>
+	<classpathentry kind="lib" path="FlightSystems-Lib/FlightSystems/FlightSystem/lib/jersey-archive-1.18/lib/asm-3.1.jar"/>
+	<classpathentry kind="lib" path="FlightSystems-Lib/FlightSystems/FlightSystem/lib/jersey-archive-1.18/lib/jackson-core-asl-1.9.2.jar"/>
+	<classpathentry kind="lib" path="FlightSystems-Lib/FlightSystems/FlightSystem/lib/jersey-archive-1.18/lib/jackson-jaxrs-1.9.2.jar"/>
+	<classpathentry kind="lib" path="FlightSystems-Lib/FlightSystems/FlightSystem/lib/jersey-archive-1.18/lib/jackson-mapper-asl-1.9.2.jar"/>
+	<classpathentry kind="lib" path="FlightSystems-Lib/FlightSystems/FlightSystem/lib/jersey-archive-1.18/lib/jackson-xc-1.9.2.jar"/>
+	<classpathentry kind="lib" path="FlightSystems-Lib/FlightSystems/FlightSystem/lib/jersey-archive-1.18/lib/jersey-client-1.18.jar"/>
+	<classpathentry kind="lib" path="FlightSystems-Lib/FlightSystems/FlightSystem/lib/jersey-archive-1.18/lib/jersey-core-1.18.jar"/>
+	<classpathentry kind="lib" path="FlightSystems-Lib/FlightSystems/FlightSystem/lib/jersey-archive-1.18/lib/jersey-json-1.18.jar"/>
+	<classpathentry kind="lib" path="FlightSystems-Lib/FlightSystems/FlightSystem/lib/jersey-archive-1.18/lib/jersey-server-1.18.jar"/>
+	<classpathentry kind="lib" path="FlightSystems-Lib/FlightSystems/FlightSystem/lib/jersey-archive-1.18/lib/jersey-servlet-1.18.jar"/>
+	<classpathentry kind="lib" path="FlightSystems-Lib/FlightSystems/FlightSystem/lib/jersey-archive-1.18/lib/jettison-1.1.jar"/>
+	<classpathentry kind="lib" path="FlightSystems-Lib/FlightSystems/FlightSystem/lib/jersey-archive-1.18/lib/jsr311-api-1.1.1.jar"/>
+	<classpathentry kind="var" path="FlightSystems-Lib"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
