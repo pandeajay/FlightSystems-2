@@ -40,7 +40,8 @@ public class GraphTests {
 		graph = new NeoGraph();
 		// graph = new NeoGraphRest();
 		//graph = new Jgraph();
-		pathForInputFile = "F:\\FlightSystems-2\\FlightSystem\\user-files\\test.json";
+		String flightSystemsHome  = System.getenv("FlightSystems_Home");
+		pathForInputFile = flightSystemsHome + "\\FlightSystem\\user-files\\test.json";
 		newNodesList = Utils.getAllNodesFromJson(pathForInputFile);
 	}
 
