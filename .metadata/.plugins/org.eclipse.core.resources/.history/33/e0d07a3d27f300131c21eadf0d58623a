@@ -162,20 +162,21 @@ public class NeoGraph implements Graph{
 		try (Transaction tx = graphDb.beginTx()) {
 			long fromId = Long.parseLong(NeoGraph.nodeIAndNeoId.get(from));
 			long toId = Long.parseLong(NeoGraph.nodeIAndNeoId.get(to));
-			Node fromNode = null;
-			Node toNode = null ;
 			
 			try{
-				fromNode = graphDb.getNodeById(fromId);			
-				toNode = graphDb.getNodeById(toId);
+			Node fromNode = graphDb.getNodeById(fromId);			
+			Node toNode = graphDb.getNodeById(toId);
 			}catch(Exception ex){
-				System.out.println("Exception in getShortestPathWeight. From or To node does not exist " + ex);
-				return 0.0;
+				
 			}
+			
+
 
 			PathFinder<WeightedPath> finder = GraphAlgoFactory.dijkstra(
 				    PathExpanders.forTypeAndDirection( RelTypes.TravellingTo, Direction.OUTGOING ), "weight" );
-						
+			
+			
+			
 			Iterable<WeightedPath> paths = finder.findAllPaths(fromNode, toNode);
 			Iterator<WeightedPath> it = paths.iterator();
 			int i = 0;
@@ -216,28 +217,17 @@ public class NeoGraph implements Graph{
 	public List getShortestPathVetices(String from, String to) {
 		List<String> list = new ArrayList<String>();
 		
-		if(from == null || from.length() == 0 || to == null || to.length() == 0){
-			System.out.println("Exception in getShortestPathVetices. Either from or to is not specified  " );
-			return list ;			
-		}
-		
 		try (Transaction tx = graphDb.beginTx()) {
 			long fromId = Long.parseLong(NeoGraph.nodeIAndNeoId.get(from));
 			long toId = Long.parseLong(NeoGraph.nodeIAndNeoId.get(to));
 			
-			Node fromNode = null;
-			Node toNode = null ;
-			
-			try{
-				fromNode = graphDb.getNodeById(fromId);			
-				toNode = graphDb.getNodeById(toId);
-			}catch(Exception ex){
-				System.out.println("Exception in getShortestPathVetices. From or To node does not exist " + ex);
-				return list;
-			}
+			Node fromNode = graphDb.getNodeById(fromId);			
+			Node toNode = graphDb.getNodeById(toId);
 			
 			PathFinder<WeightedPath> finder = GraphAlgoFactory.dijkstra(
-				    PathExpanders.forTypeAndDirection( RelTypes.TravellingTo, Direction.OUTGOING ), "weight" );			
+				    PathExpanders.forTypeAndDirection( RelTypes.TravellingTo, Direction.OUTGOING ), "weight" );
+			
+			
 			
 			Iterable<WeightedPath> paths = finder.findAllPaths(fromNode, toNode);
 			Iterator<WeightedPath> it = paths.iterator();
@@ -270,10 +260,6 @@ public class NeoGraph implements Graph{
 
 	@Override
 	public void createNodes(List<src.graphs.node.Node> nodes) {
-		if(nodes == null || nodes.size() == 0){
-			System.out.println("NeoGraph createNodes passed empty list of nodes");
-			return;
-		}
 		for(src.graphs.node.Node node : nodes){
 			createNode(node);
 		}	
@@ -281,10 +267,6 @@ public class NeoGraph implements Graph{
 
 	@Override
 	public void createEdges(List<src.graphs.node.Node> nodes) {
-		if(nodes == null || nodes.size() == 0){
-			System.out.println("NeoGraph createEdges passed empty list of nodes");
-			return;
-		}
 		for(src.graphs.node.Node node : nodes){
 			createEdge(node);
 		}	
@@ -293,10 +275,6 @@ public class NeoGraph implements Graph{
 
 	@Override
 	public long deleteNode(String nodeId) {
-		if(nodeId == null || nodeId.length() == 0 ){
-			System.out.println("Error in NeoGraph deleteNode.Pass valid nodeId " );
-			return 0;
-		}
 		try (Transaction tx = graphDb.beginTx()) {
 			Node tempNode = graphDb.getNodeById(Long
 					.parseLong(NeoGraph.nodeIAndNeoId.get(nodeId)));
@@ -312,10 +290,6 @@ public class NeoGraph implements Graph{
 
 	@Override
 	public void deleteNodes(List<src.graphs.node.Node> nodes) {
-		if(nodes == null || nodes.size() == 0){
-			System.out.println("NeoGraph deleteNodes passed empty list of nodes");
-			return;
-		}
 		try (Transaction tx = graphDb.beginTx()) {
 			for (src.graphs.node.Node node : nodes) {
 				deleteNode(node.id);
@@ -378,7 +352,6 @@ public class NeoGraph implements Graph{
 		}
 		return 1;
 	}
-	
 	boolean validateNode(src.graphs.node.Node node){
 		if(node == null){
 			System.out.println("NeoGraph createEdge : node is null ");

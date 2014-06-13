@@ -313,7 +313,7 @@ public class NeoGraph implements Graph{
 	@Override
 	public void deleteNodes(List<src.graphs.node.Node> nodes) {
 		if(nodes == null || nodes.size() == 0){
-			System.out.println("NeoGraph deleteNodes passed empty list of nodes");
+			System.out.println("NeoGraph createEdges passed empty list of nodes");
 			return;
 		}
 		try (Transaction tx = graphDb.beginTx()) {
@@ -378,7 +378,6 @@ public class NeoGraph implements Graph{
 		}
 		return 1;
 	}
-	
 	boolean validateNode(src.graphs.node.Node node){
 		if(node == null){
 			System.out.println("NeoGraph createEdge : node is null ");

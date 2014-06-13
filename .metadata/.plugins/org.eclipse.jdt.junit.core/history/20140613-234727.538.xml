@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="Rerun tests.GraphTests" project="FlightSystem" tests="11" started="11" failures="0" errors="0" ignored="0">
+  <testsuite name="tests.GraphTests" time="4.531">
+    <testcase name="testShortestPathWeight" classname="tests.GraphTests" time="0.571"/>
+    <testcase name="testDeleteAllEdges" classname="tests.GraphTests" time="0.267"/>
+    <testcase name="testDeleteAllNodes" classname="tests.GraphTests" time="0.261"/>
+    <testcase name="testShortestPath" classname="tests.GraphTests" time="0.21"/>
+    <testcase name="testShortestPathVertices" classname="tests.GraphTests" time="0.204"/>
+    <testcase name="testNodesFromJson" classname="tests.GraphTests" time="0.0"/>
+    <testcase name="testCreateEdge" classname="tests.GraphTests" time="0.155"/>
+    <testcase name="testCreateNode" classname="tests.GraphTests" time="0.022"/>
+    <testcase name="testGraphNotNull" classname="tests.GraphTests" time="0.001"/>
+    <testcase name="testDeleteNode" classname="tests.GraphTests" time="0.123"/>
+    <testcase name="testCreateAllNodes" classname="tests.GraphTests" time="2.717"/>
+  </testsuite>
+</testrun>

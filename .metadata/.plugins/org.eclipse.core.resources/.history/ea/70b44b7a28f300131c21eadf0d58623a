@@ -378,7 +378,6 @@ public class NeoGraph implements Graph{
 		}
 		return 1;
 	}
-	
 	boolean validateNode(src.graphs.node.Node node){
 		if(node == null){
 			System.out.println("NeoGraph createEdge : node is null ");
