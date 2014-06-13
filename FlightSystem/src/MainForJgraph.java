@@ -1,12 +1,7 @@
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import org.jgrapht.graph.DefaultWeightedEdge;
-
-import src.graphs.Graph;
 import src.graphs.Jgraph;
 import src.graphs.node.Node;
 import utilities.Utils;
@@ -15,7 +10,7 @@ import utilities.Utils;
 public class MainForJgraph {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+
 		new MainForJgraph().start();
 
 	}

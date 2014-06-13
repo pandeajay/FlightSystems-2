@@ -67,7 +67,7 @@ public class Utils {
 		userFeedMap.put("queriesList",";");
 		try { 
 			String sCurrentLine; 
-			br = new BufferedReader(new FileReader("C:\\Users\\apande\\Documents\\GitHub\\FlightSystems\\FlightSystem\\user-files\\user-inputs.txt")); 
+			br = new BufferedReader(new FileReader("F:\\FlightSystems-2\\FlightSystem\\user-files\\user-inputs.txt")); 
 			while ((sCurrentLine = br.readLine()) != null) {
 				
 				if(sCurrentLine.contains("DataFile=")){

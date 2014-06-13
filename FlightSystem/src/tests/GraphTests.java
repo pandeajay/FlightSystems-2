@@ -7,15 +7,16 @@ import static org.junit.Assert.*;
 
 import java.util.Iterator;
 import java.util.List;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
-
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import src.graphs.Graph;
 import src.graphs.Jgraph;
+import src.graphs.NeoGraph;
 import src.graphs.node.Node;
 import utilities.Utils;
 
@@ -36,10 +37,10 @@ public class GraphTests {
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		System.out.println("setUpBeforeClass for test");
-		//graph = new NeoGraph();
+		graph = new NeoGraph();
 		// graph = new NeoGraphRest();
-		graph = new Jgraph();
-		pathForInputFile = "C:\\Users\\apande\\Documents\\GitHub\\FlightSystems\\FlightSystem\\user-files\\test.json";
+		//graph = new Jgraph();
+		pathForInputFile = "F:\\FlightSystems-2\\FlightSystem\\user-files\\test.json";
 		newNodesList = Utils.getAllNodesFromJson(pathForInputFile);
 	}
 

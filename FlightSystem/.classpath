@@ -27,6 +27,5 @@
 	<classpathentry kind="var" path="FlightSystems-Lib"/>
 	<classpathentry kind="var" path="ECLIPSE_HOME"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
-	<classpathentry kind="var" path="FlightSystems_Home"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

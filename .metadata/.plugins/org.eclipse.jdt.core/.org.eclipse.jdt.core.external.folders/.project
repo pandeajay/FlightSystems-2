@@ -10,19 +10,14 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>.link0</name>
-			<type>2</type>
-			<location>C:/Users/apande/Documents/FlightSystems-Lib</location>
-		</link>
-		<link>
-			<name>.link1</name>
-			<type>2</type>
-			<location>C:/Users/apande/Documents/GitHub/FlightSystems/FlightSystem</location>
-		</link>
-		<link>
 			<name>.link2</name>
 			<type>2</type>
 			<location>D:/software/eclipse</location>
+		</link>
+		<link>
+			<name>.link3</name>
+			<type>2</type>
+			<location>F:/FlightSystems-2-lib</location>
 		</link>
 	</linkedResources>
 </projectDescription>
