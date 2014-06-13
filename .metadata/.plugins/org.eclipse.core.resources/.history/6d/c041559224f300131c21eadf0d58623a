@@ -95,7 +95,7 @@ public class NeoGraph implements Graph{
 		if(node.id == null || node.id.length() == 0){
 			return 0;
 		}
-		if(node.to == null || node.to.toString().length() == 0 ){
+		if(node.to == null ){
 			return 0;
 		}
 		Node myNode = null;
@@ -107,7 +107,6 @@ public class NeoGraph implements Graph{
 			 tx.success();
 		}catch(Exception e){
 			System.out.println("Exception in NeoGraph createNode " + e);
-			return 0;
 		}
 		return myNode.getId();
 		
