@@ -1,0 +1,7 @@
+//Data Nodes Path
+DataFile=C:\Users\apande\Documents\GitHub\FlightSystems\FlightSystem\user-files\nodes.json
+
+//Queries:from and to destinations
+FromNode---ToNode=  1 --- 4
+FromNode---ToNode= 2 --- 4
+
