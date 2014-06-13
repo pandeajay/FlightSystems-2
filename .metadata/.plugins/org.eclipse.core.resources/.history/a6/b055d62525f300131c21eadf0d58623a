@@ -97,7 +97,6 @@ public class NeoGraph implements Graph{
 			System.out.println("NeoGraph createNode : node id is null ");
 			return 0;
 		}
-		
 		Node myNode = null;
 		try ( Transaction tx = graphDb.beginTx() ){
 			 myNode = graphDb.createNode();

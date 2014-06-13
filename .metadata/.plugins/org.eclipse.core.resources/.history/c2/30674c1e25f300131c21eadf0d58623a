@@ -94,10 +94,11 @@ public class NeoGraph implements Graph{
 			return 0;
 		}
 		if(node.id == null || node.id.length() == 0){
-			System.out.println("NeoGraph createNode : node id is null ");
 			return 0;
 		}
-		
+		if(node.to == null || node.to.toString().length() == 0 ){
+			return 0;
+		}
 		Node myNode = null;
 		try ( Transaction tx = graphDb.beginTx() ){
 			 myNode = graphDb.createNode();
