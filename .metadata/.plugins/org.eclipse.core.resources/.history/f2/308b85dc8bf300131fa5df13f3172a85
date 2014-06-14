@@ -1,8 +1,6 @@
 /**
  * 
 */
-package tests;
-
 import static org.junit.Assert.*;
 import graphs.Graph;
 import graphs.impl.NeoGraph;

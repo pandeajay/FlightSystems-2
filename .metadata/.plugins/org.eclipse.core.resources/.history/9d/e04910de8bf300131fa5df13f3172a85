@@ -1,7 +1,7 @@
 /**
  * 
 */
-package tests;
+package tests.tests;
 
 import static org.junit.Assert.*;
 import graphs.Graph;
