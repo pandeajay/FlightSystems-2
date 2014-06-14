@@ -11,16 +11,13 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Vector;
 
-import business.EdgeImpl;
 import business.NodeImpl;
 
 
 public class MyGraph implements Graph{
 
-	List<NodeImpl> nodes = new ArrayList<NodeImpl>();
+	List<NodeImpl> graph = new ArrayList<NodeImpl>();
 	List<EdgeImpl> edges = new ArrayList<EdgeImpl>();
-	Map<String, String> graph = new HashMap<String, String>();
-	
 	String nodeSeparator = "-";
 	String pathSeparator = "::";
 	Map<String, String> weightPath = new HashMap<String, String>();
@@ -34,7 +31,7 @@ public class MyGraph implements Graph{
 
 	public void add(NodeImpl node) {
 		try {
-			this.nodes.add(node);
+			this.graph.add(node);
 			
 		} catch (Exception e) {
 			System.out.println("Exception while adding in the Graph. Reason ::"
@@ -44,11 +41,11 @@ public class MyGraph implements Graph{
 	}
 
 	public List<NodeImpl> getGraph() {
-		return this.nodes;
+		return this.graph;
 	}
 
 	NodeImpl getNode(String nodeName) {
-		Iterator<NodeImpl> it = this.nodes.iterator();
+		Iterator<NodeImpl> it = this.graph.iterator();
 		while (it.hasNext()) {
 			NodeImpl node = it.next();
 			if (node.id.equalsIgnoreCase(nodeName)) {
@@ -153,7 +150,7 @@ public class MyGraph implements Graph{
 	@Override
 	public long createNode(NodeImpl node) {
 		try {
-			this.nodes.add(node);			
+			this.graph.add(node);			
 		} catch (Exception e) {
 			System.out.println("Exception while adding in the Graph. Reason ::" + e);
 		}
@@ -278,7 +275,7 @@ public class MyGraph implements Graph{
 	@Override
 	public long deleteNode(String nodeId) {
 		try {
-			this.nodes.remove(nodeId);
+			this.graph.remove(nodeId);
 			
 		} catch (Exception e) {
 			System.out

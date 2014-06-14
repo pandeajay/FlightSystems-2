@@ -1,0 +1,9 @@
+package business;
+
+import java.util.List;
+
+public interface Edge {
+	public List<String> getVertices(String edgeId);
+	public List<String> getVertices(String edgeId);
+
+}

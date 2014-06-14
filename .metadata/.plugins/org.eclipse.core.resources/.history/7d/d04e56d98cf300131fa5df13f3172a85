@@ -6,6 +6,5 @@ public interface Edge {
 	public List<String> getVertices(String edgeId);
 	public List<String> getStartVetex(String edgeId);
 	public List<String> getEndVetex(String edgeId);
-	public double getWeight(String edgeId);
 
 }

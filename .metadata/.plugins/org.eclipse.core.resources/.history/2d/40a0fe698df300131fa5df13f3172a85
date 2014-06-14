@@ -19,7 +19,6 @@ public class MyGraph implements Graph{
 
 	List<NodeImpl> nodes = new ArrayList<NodeImpl>();
 	List<EdgeImpl> edges = new ArrayList<EdgeImpl>();
-	Map<String, String> graph = new HashMap<String, String>();
 	
 	String nodeSeparator = "-";
 	String pathSeparator = "::";
