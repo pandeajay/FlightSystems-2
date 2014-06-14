@@ -4,6 +4,8 @@
 package tests;
 
 import static org.junit.Assert.*;
+import graphs.Graph;
+import graphs.impl.NeoGraph;
 
 import java.util.Iterator;
 import java.util.List;
@@ -14,11 +16,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import src.graphs.Graph;
-import src.graphs.Jgraph;
-import src.graphs.NeoGraph;
-import src.graphs.NeoGraphRest;
-import src.graphs.node.Node;
+import business.NodeImpl;
 import utilities.Utils;
 
 /**
@@ -29,7 +27,7 @@ public class GraphTests {
 
 	static Graph graph = null;
 	static String pathForInputFile;
-	static List<Node> newNodesList;
+	static List<NodeImpl> newNodesList;
 	String nodesDataPath;
 
 	/**
@@ -79,7 +77,7 @@ public class GraphTests {
 	
 	@Test
 	 public void testEachNodesFromJson() {
-		for(Node node : newNodesList){
+		for(NodeImpl node : newNodesList){
 			assertNotNull(node.id);
 			assertNotEquals(node.id.length(),0);
 		}	
@@ -99,7 +97,7 @@ public class GraphTests {
 	}
 
 	public int createAllNodes() {
-		for (Node node : newNodesList) {
+		for (NodeImpl node : newNodesList) {
 			assertTrue(graph.createNode(node) > 0);
 		}
 		return 1;

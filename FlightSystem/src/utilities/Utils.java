@@ -9,8 +9,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import src.graphs.node.Node;
-import src.jsonutils.JsonNodeReader;
+import jsonutils.JsonNodeReader;
+import business.NodeImpl;
+
 
 public class Utils {
 
@@ -19,16 +20,16 @@ public class Utils {
 
 	}
 
-	public static List<Node> getAllNodesFromJson(String josnFile) {
+	public static List<NodeImpl> getAllNodesFromJson(String josnFile) {
 		List<String> nodesDataList = JsonNodeReader.readData(josnFile);
 		Iterator<String> newIt = nodesDataList.iterator();
-		Map<String, Node> nodesMap = new HashMap<String, Node>();
+		Map<String, NodeImpl> nodesMap = new HashMap<String, NodeImpl>();
 		while (newIt.hasNext()) {
 			String str = newIt.next();
 			String[] strs = str.split(";");
-			Node newNode = Utils.createNode(strs);
+			NodeImpl newNode = Utils.createNode(strs);
 			if (nodesMap.containsKey(newNode.id)) {
-				Node tempnode = nodesMap.get(newNode.id);
+				NodeImpl tempnode = nodesMap.get(newNode.id);
 				Map<String, String> map = tempnode.to;
 				Map<String, String> tempMap = newNode.to;
 				map.putAll(tempMap);
@@ -38,26 +39,26 @@ public class Utils {
 
 		}
 
-		Iterator<Entry<String, Node>> mapIt = nodesMap.entrySet().iterator();
+		Iterator<Entry<String, NodeImpl>> mapIt = nodesMap.entrySet().iterator();
 
-		List<Node> newNodesList = new ArrayList<Node>();
+		List<NodeImpl> newNodesList = new ArrayList<NodeImpl>();
 
 		while (mapIt.hasNext()) {
-			Entry<String, Node> entry = mapIt.next();
+			Entry<String, NodeImpl> entry = mapIt.next();
 			newNodesList.add(entry.getValue());
 		}
 		return newNodesList;
 
 	}
 
-	static Node createNode(String[] strs) {
+	static NodeImpl createNode(String[] strs) {
 		List<Map<String, String>> toListWithWeight = new ArrayList<Map<String, String>>();
 		Map<String, String> map = new HashMap<String, String>();
 		if(strs.length > 1 ){
 			map.put(strs[1], strs[2]);
 		}
 		toListWithWeight.add(map);
-		Node newNode = new Node(strs[0], toListWithWeight);
+		NodeImpl newNode = new NodeImpl(strs[0], toListWithWeight);
 		return newNode;
 	}
 	

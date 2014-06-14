@@ -1,10 +1,11 @@
+import graphs.Graph;
+import graphs.impl.NeoGraph;
+
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import src.graphs.Graph;
-import src.graphs.NeoGraph;
-import src.graphs.node.Node;
+import business.NodeImpl;
 import utilities.Utils;
 
 
@@ -21,7 +22,7 @@ public class MainNeoGraph {
 		
 		Map<String, String> userInputMap = Utils.getDataNodesFile();		
 		String nodesDataPath = userInputMap.get("DataFile");
-		List<Node> newNodesList = Utils.getAllNodesFromJson(nodesDataPath);	
+		List<NodeImpl> newNodesList = Utils.getAllNodesFromJson(nodesDataPath);	
 		
 		
 		Graph graph = new NeoGraph();		

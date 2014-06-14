@@ -1,9 +1,9 @@
+import graphs.impl.Jgraph;
+
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-
-import src.graphs.Jgraph;
-import src.graphs.node.Node;
+import business.NodeImpl;
 import utilities.Utils;
 
 
@@ -18,7 +18,7 @@ public class MainForJgraph {
 	private void start() {		
 		Map<String, String> userInputMap = Utils.getDataNodesFile();		
 		String nodesDataPath = userInputMap.get("DataFile");
-		List<Node> newNodesList = Utils.getAllNodesFromJson(nodesDataPath);	
+		List<NodeImpl> newNodesList = Utils.getAllNodesFromJson(nodesDataPath);	
 		
 		Jgraph graph = new Jgraph();	
 		graph.createNodes(newNodesList);
