@@ -420,9 +420,6 @@ public class NeoGraph implements Graph{
 		return 1;
 	}
 	
-	/**
-	 * deletes all edges from a graph
-	 */
 	@Override
 	public int deleteAllEdges() {
 		try (Transaction tx = graphDb.beginTx()) {			
@@ -438,11 +435,6 @@ public class NeoGraph implements Graph{
 		return 1;
 	}
 	
-	/**
-	 * Verifies passed node so that Neo node can be created
-	 * @param node
-	 * @return
-	 */
 	boolean validateNode(business.NodeImpl node){
 		if(node == null){
 			System.out.println("NeoGraph createEdge : node is null ");

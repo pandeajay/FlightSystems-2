@@ -243,7 +243,7 @@ public class NeoGraph implements Graph{
 	/**
 	 * For a from and to pair return shortest path vertices
 	 * input : from and to id
-	 * output : Vertices id of shortest path between from and to
+	 * output : Vertices of shortest path between from and to
 	 */
 	@Override
 	public List getShortestPathVetices(String from, String to) {
@@ -301,9 +301,6 @@ public class NeoGraph implements Graph{
 			graphDb.shutdown();
 	}
 
-	/**
-	 * Creates neo nodes from Json nodes
-	 */
 	@Override
 	public void createNodes(List<business.NodeImpl> nodes) {
 		if(nodes == null || nodes.size() == 0){
@@ -315,9 +312,6 @@ public class NeoGraph implements Graph{
 		}	
 	}
 
-	/**
-	 * Creates edges from passed JSon nodes
-	 */
 	@Override
 	public void createEdges(List<business.NodeImpl> nodes) {
 		if(nodes == null || nodes.size() == 0){
@@ -330,9 +324,6 @@ public class NeoGraph implements Graph{
 		
 	}
 
-	/**
-	 * Deletes a nodes based on nodeId
-	 */
 	@Override
 	public long deleteNode(String nodeId) {
 		if(nodeId == null || nodeId.length() == 0 ){
@@ -351,10 +342,6 @@ public class NeoGraph implements Graph{
 		}
 		return 0;
 	}
-	
-	/**
-	 * Deletes nodes from passed node ids
-	 */
 
 	@Override
 	public void deleteNodes(List<business.NodeImpl> nodes) {
@@ -374,10 +361,6 @@ public class NeoGraph implements Graph{
 	}
 	
 
-	/**
-	 * gets all nodes in a graph
-	 * @return
-	 */
 	public List<Object> getAllNodes() {
 		List<Object> list = new ArrayList<Object>();
 		Iterator<Node> it = graphDb.getAllNodes().iterator();
@@ -388,18 +371,12 @@ public class NeoGraph implements Graph{
 		
 	}
 
-	/**
-	 * Gets all edges in a graph
-	 */
 	@Override
 	public List<Object> getAllEdges() {
 		graphDb.getAllNodes();		
 		return null;
 	}
 	
-	/**
-	 * deletes all nodes in a graph
-	 */
 	@Override
 	public int deleteAllNodes() {
 		try (Transaction tx = graphDb.beginTx()) {
@@ -420,9 +397,6 @@ public class NeoGraph implements Graph{
 		return 1;
 	}
 	
-	/**
-	 * deletes all edges from a graph
-	 */
 	@Override
 	public int deleteAllEdges() {
 		try (Transaction tx = graphDb.beginTx()) {			
@@ -438,11 +412,6 @@ public class NeoGraph implements Graph{
 		return 1;
 	}
 	
-	/**
-	 * Verifies passed node so that Neo node can be created
-	 * @param node
-	 * @return
-	 */
 	boolean validateNode(business.NodeImpl node){
 		if(node == null){
 			System.out.println("NeoGraph createEdge : node is null ");
