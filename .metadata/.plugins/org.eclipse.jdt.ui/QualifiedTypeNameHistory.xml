@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="javax.swing.text.html.HTMLDocument.Iterator"/>
-<fullyQualifiedTypeName name="java.util.Map.Entry"/>
 <fullyQualifiedTypeName name="org.jgrapht.graph.SimpleDirectedWeightedGraph"/>
 <fullyQualifiedTypeName name="org.jgrapht.graph.AbstractGraph"/>
 <fullyQualifiedTypeName name="org.jgrapht.graph.ClassBasedEdgeFactory"/>
@@ -28,7 +26,6 @@
 <fullyQualifiedTypeName name="java.util.Vector"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="org.neo4j.graphalgo.WeightedPath"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="src.jsonutils.JsonNodeReader"/>
 <fullyQualifiedTypeName name="java.nio.file.Files"/>
 <fullyQualifiedTypeName name="java.nio.file.Path"/>
@@ -52,12 +49,15 @@
 <fullyQualifiedTypeName name="src.graphs.NeoGraph"/>
 <fullyQualifiedTypeName name="business.Node"/>
 <fullyQualifiedTypeName name="business.NodeImpl"/>
-<fullyQualifiedTypeName name="graphs.impl.Jgraph"/>
-<fullyQualifiedTypeName name="graphs.impl.MyGraph"/>
-<fullyQualifiedTypeName name="graphs.impl.NeoGraphRest"/>
 <fullyQualifiedTypeName name="jsonutils.JsonNodeReader"/>
 <fullyQualifiedTypeName name="graphs.Graph"/>
 <fullyQualifiedTypeName name="graphs.impl.NeoGraph"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="business.EdgeImpl"/>
+<fullyQualifiedTypeName name="java.util.UUID"/>
+<fullyQualifiedTypeName name="java.util.concurrent.atomic.AtomicInteger"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="graphs.impl.MyGraph"/>
+<fullyQualifiedTypeName name="graphs.impl.NeoGraphRest"/>
+<fullyQualifiedTypeName name="graphs.impl.Jgraph"/>
 </qualifiedTypeNameHistroy>

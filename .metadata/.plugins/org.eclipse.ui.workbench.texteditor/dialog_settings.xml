@@ -3,26 +3,26 @@
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="257" key="DIALOG_WIDTH"/>
 		<item value="109" key="DIALOG_Y_ORIGIN"/>
-		<item value="380" key="DIALOG_HEIGHT"/>
 		<item value="1043" key="DIALOG_X_ORIGIN"/>
+		<item value="380" key="DIALOG_HEIGHT"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="false" key="isRegEx"/>
 		<item value="false" key="casesensitive"/>
+		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wholeword"/>
-		<item value="business.Node" key="selection"/>
+		<item value="Inside" key="selection"/>
 		<list key="findhistory">
-			<item value="src.graphs.node.Node"/>
-			<item value="NeoGraph"/>
-			<item value="deleteAllNodes"/>
-			<item value="Exception in NeoGraph deleteAllNodes"/>
-			<item value="Exceptio"/>
+			<item value="inside"/>
 			<item value="getShortestPathVetices"/>
+			<item value="deleteedges"/>
 			<item value="deleteedge"/>
-			<item value="Exception in NeoGraph getShortestPathVetices"/>
+			<item value="EdgeImpl"/>
+			<item value="edgeIdentity"/>
+			<item value="add"/>
+			<item value="nodesAndConnections"/>
 		</list>
 		<list key="replacehistory">
 			<item value="business.Node"/>

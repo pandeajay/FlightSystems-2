@@ -46,7 +46,7 @@ public class NeoGraph implements Graph{
 	public NeoGraph(){
 		try{
 			if(graphDb == null){
-				graphDb = new GraphDatabaseFactory().newEmbeddedDatabase( "C:\\Users\\apande\\Documents\\GitHub\\FlightSystems\\EmbeddedDB" );
+				graphDb = new GraphDatabaseFactory().newEmbeddedDatabase( "E:\\EmbeddedDB" );
 			}
 			if(graphDb == null){
 				throw new Exception("can not initialize Neo graph ");
