@@ -145,9 +145,7 @@ public class Jgraph implements Graph {
 		
 	}
 
-	/**
-	 * Deletes passed nodes
-	 */
+
 	@Override
 	public void deleteNodes(List<NodeImpl> nodes) {
 		for(NodeImpl node : nodes){
@@ -165,9 +163,6 @@ public class Jgraph implements Graph {
 		return list;
 	}
 
-	/**
-	 * Deletes all nodes
-	 */
 
 	@Override
 	public int deleteAllNodes() {
@@ -186,9 +181,6 @@ public class Jgraph implements Graph {
 	}
 
 
-	/**
-	 * Deletes all edges
-	 */
 	@Override
 	public int deleteAllEdges() {
 		try{

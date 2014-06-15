@@ -237,9 +237,6 @@ public class MyGraph implements Graph{
 		return list;		
 	}
 	
-	/**
-	 * For a from and to pair returns shortest path vertices between from and to
-	 */
 	@Override
 	public List<String> getShortestPathVetices(String from, String to) {
 		getShortestPathWeight(from, to);		
@@ -262,9 +259,6 @@ public class MyGraph implements Graph{
 		
 	}
 
-	/**
-	 * Creates nodes from JSon nodes
-	 */
 	@Override
 	public void createNodes(List<NodeImpl> nodes) {
 		for(NodeImpl node : nodes){
@@ -272,9 +266,6 @@ public class MyGraph implements Graph{
 		}		
 	}
 
-	/**
-	 * Creates edges from nodes
-	 */
 	@Override
 	public void createEdges(List<NodeImpl> nodes) {
 		for(NodeImpl node : nodes){
@@ -283,9 +274,6 @@ public class MyGraph implements Graph{
 		
 	}
 
-	/**
-	 * Creates edge from node
-	 */
 	@Override
 	public long  createEdge(NodeImpl node) {		
 		try{
@@ -305,9 +293,6 @@ public class MyGraph implements Graph{
 		
 	}
 
-	/**
-	 * Deletes a specified node
-	 */
 	@Override
 	public long deleteNode(String nodeId) {
 		try {
@@ -320,9 +305,6 @@ public class MyGraph implements Graph{
 		return 1;
 	}
 
-	/**
-	 * Deletes specified nodes
-	 */
 	@Override
 	public void deleteNodes(List<NodeImpl> nodes) {
 		for(NodeImpl node : nodes){
@@ -330,9 +312,6 @@ public class MyGraph implements Graph{
 		}	
 	}
 
-	/**
-	 * Gets all edges in graph
-	 */
 	@Override
 	public List<Object> getAllEdges() {
 		List<Object> edgeList = new ArrayList<Object>();
@@ -344,9 +323,6 @@ public class MyGraph implements Graph{
 		return null;
 	}
 
-	/**
-	 * Deletes all nodes from Graph
-	 */
 	@Override
 	public int deleteAllNodes() {
 		nodesAndConnections.clear();
@@ -354,9 +330,6 @@ public class MyGraph implements Graph{
 		return 1;		
 	}
 
-	/**
-	 * Deletes all edges from a Graph
-	 */
 	@Override
 	public int deleteAllEdges() {
 		edges.clear();

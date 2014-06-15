@@ -165,9 +165,6 @@ public class Jgraph implements Graph {
 		return list;
 	}
 
-	/**
-	 * Deletes all nodes
-	 */
 
 	@Override
 	public int deleteAllNodes() {
@@ -186,9 +183,6 @@ public class Jgraph implements Graph {
 	}
 
 
-	/**
-	 * Deletes all edges
-	 */
 	@Override
 	public int deleteAllEdges() {
 		try{

@@ -186,9 +186,6 @@ public class Jgraph implements Graph {
 	}
 
 
-	/**
-	 * Deletes all edges
-	 */
 	@Override
 	public int deleteAllEdges() {
 		try{

@@ -47,17 +47,11 @@ public class Jgraph implements Graph {
 		return shortpath.getPathLength();
 	}
 	
-	/**
-	 * For a from and to pair return shortest path Edges
-	 * input : from and to id
-	 * output : Edges of shortest path between from and to
-	 */
 	public List<DefaultWeightedEdge> getShortestPathEdgeList(String from , String to){
 		DijkstraShortestPath<String, DefaultWeightedEdge> shortpath = new DijkstraShortestPath<String, DefaultWeightedEdge>(this.jGraph, from, to);
 		return shortpath.getPathEdgeList();
 	}
 	
-
 	public List getShortestPathVetices(List<DefaultWeightedEdge> edgeList){
 		List<String> list = new ArrayList<String>();
 		Iterator<DefaultWeightedEdge> it = edgeList.iterator();
@@ -91,7 +85,7 @@ public class Jgraph implements Graph {
 	}
 
 	/**
-	 * Creates JGraph nodes from Json nodes
+	 * Creates neo nodes from Json nodes
 	 */
 	@Override
 	public void createNodes(List<NodeImpl> nodes) {
@@ -112,9 +106,6 @@ public class Jgraph implements Graph {
 		
 	}
 
-	/**
-	 * Creates edges of a specified Node
-	 */
 	@Override
 	public long createEdge(NodeImpl node) {
 		Iterator<Entry<String, String>> it = node.to.entrySet().iterator();
@@ -132,9 +123,6 @@ public class Jgraph implements Graph {
 	}
 
 
-	/**
-	 * Deletes specified node
-	 */
 	@Override
 	public long deleteNode(String nodeId) {
 		if(jGraph.removeVertex(nodeId)){
@@ -145,9 +133,7 @@ public class Jgraph implements Graph {
 		
 	}
 
-	/**
-	 * Deletes passed nodes
-	 */
+
 	@Override
 	public void deleteNodes(List<NodeImpl> nodes) {
 		for(NodeImpl node : nodes){
@@ -165,9 +151,6 @@ public class Jgraph implements Graph {
 		return list;
 	}
 
-	/**
-	 * Deletes all nodes
-	 */
 
 	@Override
 	public int deleteAllNodes() {
@@ -186,9 +169,6 @@ public class Jgraph implements Graph {
 	}
 
 
-	/**
-	 * Deletes all edges
-	 */
 	@Override
 	public int deleteAllEdges() {
 		try{

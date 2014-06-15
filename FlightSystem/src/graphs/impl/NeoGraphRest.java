@@ -27,7 +27,9 @@ public class NeoGraphRest implements Graph{
 	static List<String> edgeList = new ArrayList<String>();
 
 
-
+	/**
+	 * Constructor
+	 */
 	public NeoGraphRest(){
 		try{
 			graphDb = new RestGraphDatabase("http://localhost:7474/db/data");
@@ -57,6 +59,11 @@ public class NeoGraphRest implements Graph{
 	}
 
 
+	/**
+	 * Returns Node from id
+	 * @param id
+	 * @return Node
+	 */
 	public Node getNode(long id) {
 		Node node = null;
 		try (Transaction tx = graphDb.beginTx()) {
@@ -69,6 +76,11 @@ public class NeoGraphRest implements Graph{
 
 	}
 
+	/**
+	 * Creates Neo Node from Node
+	 * input: node
+	 * output: new node id
+	 */
 
 	@Override
 	public long createNode(business.NodeImpl node) {
@@ -84,6 +96,12 @@ public class NeoGraphRest implements Graph{
 
 	}
 
+	/**
+	 * Creates Edge for passed node
+	 * input : node
+	 * output : edgeId 
+	 * 
+	 */
 	@Override
 	public long createEdge(business.NodeImpl node) {
 		if(!validateNode(node)){
@@ -126,7 +144,11 @@ public class NeoGraphRest implements Graph{
 		}
 		return 1;		
 	}
-
+	/**
+	 * For a from and to pair return shortest path weight
+	 * input : from and to id
+	 * output : weight of shortest path between from and to
+	 */
 
 	@Override
 	public double getShortestPathWeight(String from, String to) {
@@ -173,7 +195,11 @@ public class NeoGraphRest implements Graph{
 	}
 
 
-
+	/**
+	 * Gets node form Neo node id
+	 * @param neoId
+	 * @return
+	 */
 	String getNodeIdFromNeoNodeId(long neoId){
 		Iterator<Entry<String, String>> it = NeoGraphRest.nodeIAndNeoId.entrySet().iterator();
 
@@ -188,6 +214,11 @@ public class NeoGraphRest implements Graph{
 
 	}
 
+	/**
+	 * For a from and to pair return shortest path vertices
+	 * input : from and to id
+	 * output : Vertices id of shortest path between from and to
+	 */
 	@Override
 	public List getShortestPathVetices(String from, String to) {
 		List<String> list = new ArrayList<String>();
@@ -241,6 +272,9 @@ public class NeoGraphRest implements Graph{
 		graphDb.shutdown();
 	}
 
+	/**
+	 * Creates neo nodes from Json nodes
+	 */
 	@Override
 	public void createNodes(List<business.NodeImpl> nodes) {
 		if(nodes == null || nodes.size() == 0){
@@ -252,6 +286,9 @@ public class NeoGraphRest implements Graph{
 		}	
 	}
 
+	/**
+	 * Creates edges from passed JSon nodes
+	 */
 	@Override
 	public void createEdges(List<business.NodeImpl> nodes) {
 		if(nodes == null || nodes.size() == 0){
@@ -264,6 +301,9 @@ public class NeoGraphRest implements Graph{
 
 	}
 
+	/**
+	 * Deletes a nodes based on nodeId
+	 */
 	@Override
 	public long deleteNode(String nodeId) {
 		if(nodeId == null || nodeId.length() == 0 ){
@@ -275,6 +315,9 @@ public class NeoGraphRest implements Graph{
 		tempNode.delete();
 		return 1;
 	}
+	/**
+	 * Deletes nodes from passed node ids
+	 */
 
 	@Override
 	public void deleteNodes(List<business.NodeImpl> nodes) {
@@ -288,12 +331,18 @@ public class NeoGraphRest implements Graph{
 	}
 
 
+	/**
+	 * Gets all edges in a graph
+	 */
 	@Override
 	public List<Object> getAllEdges() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	/**
+	 * deletes all nodes in a graph
+	 */
 	@Override
 	public int deleteAllNodes() {
 		// TODO Auto-generated method stub
@@ -302,6 +351,9 @@ public class NeoGraphRest implements Graph{
 
 	}
 
+	/**
+	 * deletes all edges from a graph
+	 */
 	@Override
 	public int deleteAllEdges() {
 		for(String edgeId : edgeList){
@@ -310,6 +362,11 @@ public class NeoGraphRest implements Graph{
 		}		
 		return 1;
 	}
+	/**
+	 * Verifies passed node so that Neo node can be created
+	 * @param node
+	 * @return
+	 */
 	boolean validateNode(business.NodeImpl node){
 		if(node == null){
 			System.out.println("NeoGraphRest createEdge : node is null ");

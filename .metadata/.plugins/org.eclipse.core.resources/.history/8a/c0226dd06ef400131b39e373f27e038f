@@ -283,9 +283,6 @@ public class MyGraph implements Graph{
 		
 	}
 
-	/**
-	 * Creates edge from node
-	 */
 	@Override
 	public long  createEdge(NodeImpl node) {		
 		try{
@@ -305,9 +302,6 @@ public class MyGraph implements Graph{
 		
 	}
 
-	/**
-	 * Deletes a specified node
-	 */
 	@Override
 	public long deleteNode(String nodeId) {
 		try {
@@ -320,9 +314,6 @@ public class MyGraph implements Graph{
 		return 1;
 	}
 
-	/**
-	 * Deletes specified nodes
-	 */
 	@Override
 	public void deleteNodes(List<NodeImpl> nodes) {
 		for(NodeImpl node : nodes){
@@ -330,9 +321,6 @@ public class MyGraph implements Graph{
 		}	
 	}
 
-	/**
-	 * Gets all edges in graph
-	 */
 	@Override
 	public List<Object> getAllEdges() {
 		List<Object> edgeList = new ArrayList<Object>();
@@ -344,9 +332,6 @@ public class MyGraph implements Graph{
 		return null;
 	}
 
-	/**
-	 * Deletes all nodes from Graph
-	 */
 	@Override
 	public int deleteAllNodes() {
 		nodesAndConnections.clear();
@@ -354,9 +339,6 @@ public class MyGraph implements Graph{
 		return 1;		
 	}
 
-	/**
-	 * Deletes all edges from a Graph
-	 */
 	@Override
 	public int deleteAllEdges() {
 		edges.clear();
