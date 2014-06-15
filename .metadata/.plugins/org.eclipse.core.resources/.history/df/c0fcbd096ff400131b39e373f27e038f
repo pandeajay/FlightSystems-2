@@ -5,10 +5,8 @@ package tests;
 
 import static org.junit.Assert.*;
 import graphs.Graph;
-import graphs.impl.Jgraph;
 import graphs.impl.MyGraph;
 import graphs.impl.NeoGraph;
-import graphs.impl.NeoGraphRest;
 
 import java.util.Iterator;
 import java.util.List;
@@ -39,10 +37,10 @@ public class GraphTests {
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		System.out.println("setUpBeforeClass for test");
-		graph = new NeoGraph();
-		//graph = new NeoGraphRest();
+		//		graph = new NeoGraph();
+		// graph = new NeoGraphRest();
 		//graph = new Jgraph();
-		//graph = new MyGraph();
+		graph = new MyGraph();
 		String flightSystemsHome  = System.getenv("FlightSystems_Home");
 		pathForInputFile = flightSystemsHome + "\\FlightSystem\\user-files\\test.json";
 		newNodesList = Utils.getAllNodesFromJson(pathForInputFile);
@@ -53,6 +51,7 @@ public class GraphTests {
 	 */
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
+		System.out.println("tearDownAfterClass for test");
 		graph.close();
 	}
 
@@ -61,6 +60,7 @@ public class GraphTests {
 	 */
 	@Before
 	public void setUp() throws Exception {
+		//System.out.println("setup for test");
 		
 	}
 
@@ -87,6 +87,7 @@ public class GraphTests {
 
 	@Test
 	 public void testGraphNotNull() {
+		System.out.println("Inside testGraphNotNull ");
 		assertNotNull(graph);
 		assertNotNull(pathForInputFile);
 	} 
@@ -170,7 +171,7 @@ public class GraphTests {
 				"     shortestPath = " + (shortestPath.length() == 0 ? "Path does not exist"  : shortestPath)+ 
 				" and its weight = " +weight + (weight > 999 ? "   practically impossible" : "");
 		
-		//System.out.println("testShortestPath result " + result);
+		System.out.println("testShortestPath result " + result);
 		
 		deleteAllNodes();
 		
@@ -185,7 +186,7 @@ public class GraphTests {
 		String from = "1";
 		String to = "4";
 		double weight = graph.getShortestPathWeight(from, to);	
-		//System.out.println("minWeight = " + weight);		
+		System.out.println("minWeight = " + weight);		
 		deleteAllNodes();		
 		assertEquals(""+weight, "4.0");
 	}
@@ -198,7 +199,7 @@ public class GraphTests {
 		String from = "1";
 		String to = "4";
 		List<?> vertices = graph.getShortestPathVetices(from, to);	
-		//System.out.println("vertices = " + vertices.size());		
+		System.out.println("vertices = " + vertices.size());		
 		deleteAllNodes();		
 		assertEquals(vertices.size(), 3);
 		assertTrue(vertices.contains("1"));

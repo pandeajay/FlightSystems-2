@@ -39,10 +39,10 @@ public class GraphTests {
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		System.out.println("setUpBeforeClass for test");
-		graph = new NeoGraph();
+		//graph = new NeoGraph();
 		//graph = new NeoGraphRest();
-		//graph = new Jgraph();
-		//graph = new MyGraph();
+		graph = new Jgraph();
+		graph = new MyGraph();
 		String flightSystemsHome  = System.getenv("FlightSystems_Home");
 		pathForInputFile = flightSystemsHome + "\\FlightSystem\\user-files\\test.json";
 		newNodesList = Utils.getAllNodesFromJson(pathForInputFile);
