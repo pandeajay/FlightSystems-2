@@ -11,7 +11,6 @@ import utilities.Utils;
 public class MainMyGraph {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		new MainMyGraph().start();
 
 	}

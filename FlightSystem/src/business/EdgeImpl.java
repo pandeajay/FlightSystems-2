@@ -1,36 +1,44 @@
 package business;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class EdgeImpl implements Edge{
+	String id;
+	String from;
+	String to;
+	String weight;
+	
+	public EdgeImpl(String edgeId, String from, String to, String weight) {
+		super();
+		this.id = edgeId;
+		this.from = from;
+		this.to = to;
+		this.weight = weight;
+	}
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
+	@Override
+	public List<String> getVertices() {
+		List<String> list = new ArrayList<String>();
+		list.add(this.from);
+		list.add(this.to);
+		return list;
 	}
 
 	@Override
-	public List<String> getVertices(String edgeId) {
-		// TODO Auto-generated method stub
-		return null;
+	public String getStartVetex(String edgeId) {
+		return this.from;
 	}
 
 	@Override
-	public List<String> getStartVetex(String edgeId) {
-		// TODO Auto-generated method stub
-		return null;
+	public String getEndVetex(String edgeId) {
+		return this.to;
 	}
 
 	@Override
-	public List<String> getEndVetex(String edgeId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public double getWeight(String edgeId) {
-		// TODO Auto-generated method stub
-		return 0;
+	public String getWeight(String edgeId) {
+		return this.weight;
 	}
 
 }

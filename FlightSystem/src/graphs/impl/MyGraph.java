@@ -10,39 +10,29 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Vector;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import business.EdgeImpl;
 import business.NodeImpl;
 
 
 public class MyGraph implements Graph{
-
-	List<NodeImpl> nodes = new ArrayList<NodeImpl>();
-	List<EdgeImpl> edges = new ArrayList<EdgeImpl>();
+	Map<String, List<String> > nodesAndConnections = new HashMap<String, List<String>>();
+	Map<String, EdgeImpl> edges = new HashMap<String, EdgeImpl>();	
+	List<NodeImpl> nodes = new ArrayList<NodeImpl>();	
 	Map<String, String> graph = new HashMap<String, String>();
-	
+	AtomicInteger edgeIdentity = new AtomicInteger();
 	String nodeSeparator = "-";
 	String pathSeparator = "::";
 	Map<String, String> weightPath = new HashMap<String, String>();
 	String minWeightStr = "minWeight=";
 	String minPathsStr = ";paths=";
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	
+	public MyGraph() {
+		super();
+		edgeIdentity.set(0);
 	}
-
-	public void add(NodeImpl node) {
-		try {
-			this.nodes.add(node);
-			
-		} catch (Exception e) {
-			System.out.println("Exception while adding in the Graph. Reason ::"
-					+ e);
-		}
-		
-	}
-
+	
 	public List<NodeImpl> getGraph() {
 		return this.nodes;
 	}
@@ -128,34 +118,25 @@ public class MyGraph implements Graph{
 		
 	}
 
-/*	public List<String> findShortestPath (String from, String to){
-		List<String> shortestPaths = new ArrayList<String>();
-		try{
-			
-			//try building possibilities from the existing nodes
-			Node startNode = getNode(from);
-			Node endNode = getNode(to);
-			
-			List<String> possiblePaths = new ArrayList<String>();
-			Iterator<String> it = getIdsFromNode(from).iterator();
-			
-			return getAllPaths(from);
-		
-		
-		}catch(Exception e){
-			
-		}
-		
-		return shortestPaths;
-		
-	} */
-
 	@Override
 	public long createNode(NodeImpl node) {
 		try {
-			this.nodes.add(node);			
+			List<String> toList = new ArrayList<String>();
+			Iterator<Entry<String, String>> it = node.to.entrySet().iterator();
+			while(it.hasNext()){
+				Entry<String, String> entry = it.next();
+				toList.add(entry.getKey());
+			}
+			if(this.nodesAndConnections.containsKey(node.id)){
+				List<String> list = this.nodesAndConnections.get(node.id);
+				list.addAll(toList);
+				
+			}else{
+				this.nodesAndConnections.put(node.id,  toList);
+			}
+			nodes.add(node);			
 		} catch (Exception e) {
-			System.out.println("Exception while adding in the Graph. Reason ::" + e);
+			System.out.println("Exception while createNode in the Graph. Reason ::" + e);
 		}
 		return 1;
 		
@@ -214,8 +195,7 @@ public class MyGraph implements Graph{
 				}				
 			}
 		}	
-		weightPath.put(from + nodeSeparator + to, minWeightStr + minWeight + minPathsStr + minPath);
-		
+		weightPath.put(from + nodeSeparator + to, minWeightStr + minWeight + minPathsStr + minPath);		
 		return minWeight;
 	}
 
@@ -242,14 +222,19 @@ public class MyGraph implements Graph{
 		List<String> list = new ArrayList<String>();	
 		String paths = weightPath.get(from + nodeSeparator + to);
 		paths = paths.substring(  paths.indexOf(";")+ minPathsStr.length());
-		list.add(paths);		
+		String[] path = paths.split(nodeSeparator);
+		for(String temp : path){
+			list.add(temp);
+		}
 
 		return list;		
 	}
 
 	@Override
 	public void close() {
-		// TODO Auto-generated method stub
+		nodes.clear();
+		nodesAndConnections.clear();
+		edges.clear();
 		
 	}
 
@@ -269,9 +254,21 @@ public class MyGraph implements Graph{
 	}
 
 	@Override
-	public long  createEdge(NodeImpl node) {
+	public long  createEdge(NodeImpl node) {		
+		try{
+			Iterator<Entry<String, String>> it = node.to.entrySet().iterator();
+			while(it.hasNext()){
+				Entry<String, String> entry = it.next();
+				int id	= edgeIdentity.incrementAndGet();
+				EdgeImpl edgeInfo = new EdgeImpl(""+id, node.id, entry.getKey(), entry.getValue());
+				edges.put(""+id, edgeInfo);
+			}			
+		}catch(Exception e){
+			System.out.println("Exception while createEdge in the Graph. Reason ::" 	+ e);
+			return 0;
+		}
 		
-		return 1;
+		return edgeIdentity.longValue();
 		
 	}
 
@@ -279,11 +276,9 @@ public class MyGraph implements Graph{
 	public long deleteNode(String nodeId) {
 		try {
 			this.nodes.remove(nodeId);
-			
+			this.nodesAndConnections.remove(nodeId);				
 		} catch (Exception e) {
-			System.out
-					.println("Exception while deleteing in the Graph. Reason ::"
-							+ e);
+			System.out.println("Exception while deleteing in the Graph. Reason ::" 	+ e);
 			return 0;
 		}
 		return 1;
@@ -293,26 +288,30 @@ public class MyGraph implements Graph{
 	public void deleteNodes(List<NodeImpl> nodes) {
 		for(NodeImpl node : nodes){
 			deleteNode(node.id);
-		}
-		
+		}	
 	}
 
 	@Override
 	public List<Object> getAllEdges() {
-		// TODO Auto-generated method stub
+		List<Object> edgeList = new ArrayList<Object>();
+		Iterator<Entry<String, EdgeImpl>> it = edges.entrySet().iterator();
+		while(it.hasNext()){
+			Entry<String, EdgeImpl> entry = it.next();
+			edgeList.add(entry.getValue());
+		}
 		return null;
 	}
 
 	@Override
 	public int deleteAllNodes() {
-		return 1;
-
-		
+		nodesAndConnections.clear();
+		nodes.clear();
+		return 1;		
 	}
 
 	@Override
 	public int deleteAllEdges() {
-		// TODO Auto-generated method stub
-		return 0;
-	} 
+		edges.clear();
+		return 1;
+	}
 }

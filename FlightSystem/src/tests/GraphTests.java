@@ -5,6 +5,7 @@ package tests;
 
 import static org.junit.Assert.*;
 import graphs.Graph;
+import graphs.impl.MyGraph;
 import graphs.impl.NeoGraph;
 
 import java.util.Iterator;
@@ -36,9 +37,10 @@ public class GraphTests {
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		System.out.println("setUpBeforeClass for test");
-		graph = new NeoGraph();
+		//		graph = new NeoGraph();
 		// graph = new NeoGraphRest();
 		//graph = new Jgraph();
+		graph = new MyGraph();
 		String flightSystemsHome  = System.getenv("FlightSystems_Home");
 		pathForInputFile = flightSystemsHome + "\\FlightSystem\\user-files\\test.json";
 		newNodesList = Utils.getAllNodesFromJson(pathForInputFile);
@@ -197,7 +199,7 @@ public class GraphTests {
 		String from = "1";
 		String to = "4";
 		List<?> vertices = graph.getShortestPathVetices(from, to);	
-		System.out.println("vertices = " + vertices);		
+		System.out.println("vertices = " + vertices.size());		
 		deleteAllNodes();		
 		assertEquals(vertices.size(), 3);
 		assertTrue(vertices.contains("1"));
