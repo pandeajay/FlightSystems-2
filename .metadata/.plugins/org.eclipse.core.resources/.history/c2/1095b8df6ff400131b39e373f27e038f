@@ -170,7 +170,7 @@ public class GraphTests {
 				"     shortestPath = " + (shortestPath.length() == 0 ? "Path does not exist"  : shortestPath)+ 
 				" and its weight = " +weight + (weight > 999 ? "   practically impossible" : "");
 		
-
+		//System.out.println("testShortestPath result " + result);
 		
 		deleteAllNodes();
 		
@@ -185,7 +185,7 @@ public class GraphTests {
 		String from = "1";
 		String to = "4";
 		double weight = graph.getShortestPathWeight(from, to);	
-
+		//System.out.println("minWeight = " + weight);		
 		deleteAllNodes();		
 		assertEquals(""+weight, "4.0");
 	}
@@ -198,7 +198,7 @@ public class GraphTests {
 		String from = "1";
 		String to = "4";
 		List<?> vertices = graph.getShortestPathVetices(from, to);	
-
+		//System.out.println("vertices = " + vertices.size());		
 		deleteAllNodes();		
 		assertEquals(vertices.size(), 3);
 		assertTrue(vertices.contains("1"));
